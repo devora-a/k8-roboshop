@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: mongodb
+  namespace: robohshop
+  labels:
+    project: roboshop
+    tire: db
+    component: mongodb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      project: roboshop
+      tire: db
+      component: mongodb
+   #pod   
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        tire: db
+        component: mongodb
+    spec:
+      containers:
+      - name: mongodb
+        image: aravinddharla/mongodb:4.0.0
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+  namespace: roboshop
+  # service labeles
+  labels:
+    project: roboshop
+    tire: db
+    component: mongodb
+spec:
+    # service uses the below labels to select the pods
+  selector:
+    project: roboshop
+    tire: db
+    component: mongodb
+  ports:
+    - protocol: TCP
+      port: 27017 #service port
+      targetPort: 27017  #container port
