@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mongodb
-  namespace: robohshop
+  namespace: roboshop
   labels:
     project: roboshop
     tire: db
