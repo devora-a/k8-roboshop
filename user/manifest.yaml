@@ -35,7 +35,9 @@ spec:
       containers:
       - name: user
         image: aravinddharla/user:4.0.0
-
+        envFrom:
+        - configMapRef:
+            name: user
 ---
 apiVersion: v1
 kind: Service
