@@ -34,7 +34,7 @@ spec:
       containers:
       - name: mysql
         image: aravinddharla/mysql:4.0.0
-        args: ["--mysql-native-password=ON"]
+        args: ["--mysql_native_password=ON"]
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: "RoboShop@1"
